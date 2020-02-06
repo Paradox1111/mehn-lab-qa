@@ -3,11 +3,9 @@
 
 {{#each question.answers}}
 <li>
-    {{this._id}}
+    {{this.body}}
     
-    <form action="/questions/{{question._id}}/{{@index}}/edit" >
-        <input type="submit" value="EDIT" />
-    </form>
+    <a href="/questions/edit/{{this._id}}/{{../question._id}}">EDIT</a>
 </li>
 {{/each}}
 

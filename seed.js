@@ -1,6 +1,6 @@
 const Question = require('./db/models/Question');
 const Answer = require('./db/models/Answer');
-const data = require('./seedData.json');
+
 
 Question.deleteMany({}).then(() => {
    console.log('deleted all Questions');
@@ -15,7 +15,7 @@ Question.deleteMany({}).then(() => {
             body: 'who knows man'
          }).then(answer => {
             question.answers.push(answer);
-            question.save();
+            
          });
 
          Answer.create({

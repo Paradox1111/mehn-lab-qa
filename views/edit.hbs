@@ -1,6 +1,10 @@
 <h1>Edit</h1>
+<h2>{{question.title}}</h2>
+
+<h3>{{answer.body}}</h3>
 
 
-<form action="/questions/edit/{{this._id}}?_method=put" method="post">
-    <input name="_method" type="submit" value="EDIT" />
+<form action="/questions/edit/{{answer._id}}/{{question._id}}?_method=PUT" method="post">
+    <input type="text" name="answer" />
+    <input name="_method" type="submit" value="PUT" />
 </form>
