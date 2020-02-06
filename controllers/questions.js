@@ -19,6 +19,13 @@ router.get("/", (req, res) => {
 		.catch(console.error);
 });
 
+router.get(':id/:index/edit', (req, res) => {
+	console.log(req.params)
+	Question.findById(req.params.id).then((question => {
+		res.render('edit', {question: question, index: req.params.index})
+	}))
+})
+
 router.delete("/delete/:id/", (req, res) => {
 	console.log(req.params);
 	Question.findByIdAndDelete(req.params.id)
@@ -27,6 +34,13 @@ router.delete("/delete/:id/", (req, res) => {
 		})
 		.then(res.redirect("/questions"));
 });
+
+router.put('/edit/:id', (req, res) => {
+	Question.findOneAndUpdate({_id: req.params.id}, { 
+
+	}, {new: true}).then(res.redirect('/questions/' + req.params.id)
+	)
+})
 
 router.post("/:id", (req, res) => {
 	Question.findById(req.params.id)
