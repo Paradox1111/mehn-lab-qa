@@ -1,7 +1,7 @@
 const mongoose = require("../connection");
 
 const QuestionSchema = new mongoose.Schema({
-	title: String,
+	title: { type: String, required: true },
 	body: String,
 	answers: [String],
 	user: String

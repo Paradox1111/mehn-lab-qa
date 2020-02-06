@@ -1,4 +1,5 @@
 const express = require("express");
+const methodOverride = require("method-override");
 
 const app = express();
 
@@ -13,6 +14,7 @@ app.use(cors()); //allow multi-origin requests
 
 app.set("view engine", "hbs");
 
+app.use(methodOverride("_method"));
 app.use("/questions", questionsController);
 
 app.listen(6969, () => console.log("Listening on port 6969"));
